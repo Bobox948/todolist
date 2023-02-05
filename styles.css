@@ -1,0 +1,65 @@
+
+      body{
+        background-color: #c3cde8;
+        font-family: "Caveat", cursive; /* like handwriting */
+        font-size: 2rem;
+        
+      }
+      
+      .flex {
+        display: flex;
+        justify-content: center;
+        
+      }
+      
+      .paper {
+
+        position: relative;
+        display: flex;
+        rotate: 5deg; /* the paper is a little bit rotated to the right */
+        justify-content: center;
+        min-width: 400px;
+        min-height: 400px;
+        background: linear-gradient(
+          135deg,
+          #e5c93d,
+          30%,
+          #ffed87
+        );
+        box-shadow: 10px 10px 25px rgba(65, 60, 60, 0.5);
+        border-bottom-right-radius: 10px;
+        
+      }
+
+  /* strike animation */
+      .strike {
+         position:relative; 
+        }
+
+      .strike::after {
+        content:' ';
+        position:absolute;
+        top:50%; left:-3%;
+        width:0; height:10px;
+        opacity:80%;
+        transform:translateY(-50%);
+        background:repeat-x url("./strike.png");
+        animation: strike 0.5s linear .3s 1 forwards;
+      }
+      @keyframes strike { to { width: 106%; } }
+
+
+      .top-tape {  /* scotch tape at the top */
+        position: absolute;
+        height: 4vmin;
+        top: -20px;
+        width: 50%;
+        background-color:#dbd8be;
+        border-right: 1px dotted  #b7b49d;
+        border-left: 1px dotted  #b7b49d;
+        opacity: 0.666;
+      }
+      
+
+      
+      
