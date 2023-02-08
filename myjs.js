@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function() { // making sure the do
 
 
  
-    load_default() // load the tasks from sessionstorage
+    load_default() // load the tasks from localstorage
+  
 
 
     document.getElementById('add').addEventListener('click', addTask)
@@ -50,7 +51,7 @@ function Task(title) {
 
 function load_default() {
 
-    var storage = Object.keys(sessionStorage) // retrieving all the keys from session storage
+    var storage = Object.keys(localStorage) // retrieving all the keys from session storage
 
     for (var i=0; i<storage.length; i++)
 
@@ -95,7 +96,7 @@ function load_default() {
 
     div.remove() // deleting the div
     
-    sessionStorage.removeItem(value)    // deleting the item from session storage
+    localStorage.removeItem(value)    // deleting the item from session storage
 
 
     }, 2000);
@@ -130,7 +131,7 @@ function addTask(event) {
     var newdiv = document.createElement("div")
     choice.appendChild(newdiv);
     newdiv.innerHTML = title
-    sessionStorage.setItem(title, title) // storing into session storage
+    localStorage.setItem(title, title) // storing into session storage
     var delbtn =  document.createElement("input")
     delbtn.setAttribute('type', 'checkbox')
 
@@ -147,7 +148,7 @@ function addTask(event) {
         if (index !== -1) { // if index is -1 that means the item is not in the array
         tasks.splice(index, 1);} 
       
-        sessionStorage.removeItem(title)  
+        localStorage.removeItem(title)  
         newdiv.innerHTML = `<span class="strike">${title}</span>`
 
         setTimeout(function(){
@@ -168,7 +169,7 @@ function addTask(event) {
   
  
 function clear(){
-  sessionStorage.clear() // clearing the session storage
+  localStorage.clear() // clearing the session storage
   window.location.reload() // reloading the window to blank everything
 }
 
